@@ -13,16 +13,16 @@ import XML
 import Stream
 @testable import XMLRPC
 
-class XMLRPCTests: TestCase {
-    func streamWith(_ string: String) -> BufferedInputStream<InputByteStream> {
-        let bytes = [UInt8](string.utf8)
-        let stream = InputByteStream(bytes)
-        return BufferedInputStream(baseStream: stream)
+extension InputByteStream {
+    convenience init(_ string: String) {
+        self.init([UInt8](string.utf8))
     }
+}
 
+class XMLRPCTests: TestCase {
     func testRequest() {
         do {
-            let stream = streamWith("""
+            let stream = InputByteStream("""
                 <?xml version="1.0" encoding="utf-8" standalone="no"?>
                 <methodCall>
                     <methodName>TestMethod</methodName>
@@ -58,7 +58,7 @@ class XMLRPCTests: TestCase {
     }
 
     func testResponse() {
-        let stream = streamWith("""
+        let stream = InputByteStream("""
              <?xml version="1.0" encoding="utf-8"?>
              <methodResponse>
                  <params>
@@ -89,6 +89,7 @@ class XMLRPCTests: TestCase {
                  </params>
              </methodResponse>
              """)
+
         do {
             let response = try RPCResponse(from: stream)
             assertEqual(response, RPCResponse(params: [
