@@ -103,10 +103,4 @@ class XMLRPCTests: TestCase {
             fail(String(describing: error))
         }
     }
-
-
-    static var allTests = [
-        ("testRequest", testRequest),
-        ("testResponse", testResponse),
-    ]
 }
