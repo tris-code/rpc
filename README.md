@@ -6,5 +6,5 @@ The package doesn't include networking part.
 ## Package.swift
 
 ```swift
-.package(url: "https://github.com/tris-foundation/xml-rpc.git", .branch("master"))
+.package(url: "https://github.com/tris-code/xml-rpc.git", .branch("master"))
 ```
