@@ -7,15 +7,9 @@ let package = Package(
         .library(name: "XMLRPC", targets: ["XMLRPC"])
     ],
     dependencies: [
-        .package(
-            url: "https://github.com/tris-code/xml.git",
-            .branch("master")),
-        .package(
-            url: "https://github.com/tris-code/radix.git",
-            .branch("master")),
-        .package(
-            url: "https://github.com/tris-code/test.git",
-            .branch("master"))
+        .package(path: "../XML"),
+        .package(path: "../Radix"),
+        .package(path: "../Test")
     ],
     targets: [
         .target(
