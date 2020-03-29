@@ -7,9 +7,9 @@ let package = Package(
         .library(name: "XMLRPC", targets: ["XMLRPC"])
     ],
     dependencies: [
-        .package(path: "../XML"),
-        .package(path: "../Radix"),
-        .package(path: "../Test")
+        .package(path: "../xml"),
+        .package(path: "../radix"),
+        .package(path: "../test")
     ],
     targets: [
         .target(
